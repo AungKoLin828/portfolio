@@ -1,0 +1,46 @@
+{
+  "Languages": [
+    "Java",
+    "JavaScript",
+    "TypeScript",
+    "VBA"
+  ],
+  "Frameworks": [
+    "Spring Boot",
+    "Spring Batch",
+    "Spring MVC",
+    "Spring Security",
+    "JPA",
+    "MyBatis",
+    "Angular",
+    "React",
+    "Thymeleaf",
+    "PrimeFaces",
+    "JSF",
+    "REST APIs"
+  ],
+  "Databases": [
+    "Oracle",
+    "PostgreSQL",
+    "MySQL",
+    "MS Access"
+  ],
+  "Tools": [
+    "Eclipse",
+    "VS Code",
+    "Git",
+    "SVN",
+    "Maven",
+    "Gradle"
+  ],
+  "Testing": [
+    "JUnit",
+    "Mockito",
+    "Cypress (E2E)"
+  ],
+  "Other": [
+    "Jasper Reports",
+    "i-Reporter",
+    "Agile / Scrum"
+  ]
+}

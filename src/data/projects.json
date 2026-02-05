@@ -1,0 +1,84 @@
+[
+  {
+    "title": "Legacy System Migration (Japan Offshore Project)",
+    "description": "Migrated legacy C-based batch systems to Spring Batch Application, significantly improving system maintainability and reducing downtime by 30% using",
+    "techStack": [
+      "Java",
+      ", Spring Batch",
+      ", JPA",
+      ", JUnit",
+      ", OpenAPI",
+      ", Oracle."
+    ],
+    "type": "Enterprise / Offshore",
+    "highlight": true
+  },
+  {
+    "title": "Data Analysis & Reporting Automation (Japan Offshore Project)",
+    "description": "Developed data analysis tools using Java and VBA to automate reporting workflows, saving over 10 hours per week using",
+    "techStack": [
+      "Java",
+      ", VBA",
+      ", MS Access."
+    ],
+    "type": "Internal Tool"
+  },
+  {
+    "title": "MS Word to Excel Converter Tool (Japan Offshore Project)",
+    "description": "Built a conversion tool in Java and VBA to extract structured data from Word documents into Excel, improving accuracy by 40% using",
+    "techStack": [
+      "Java",
+      ", VBA."
+    ],
+    "type": "Utility Tool"
+  },
+  {
+    "title": "System Maintenance Platform (Japan Offshore Project)",
+    "description": "Led maintenance and enhancement of enterprise systems using Spring Boot and Angular, improving front-end performance and user experience using",
+    "techStack": [
+      "Spring Boot",
+      ", Angular",
+      ", Thymeleaf",
+      ", REST APIs."
+    ],
+    "type": "Enterprise Web Application"
+  },
+  {
+    "title": "JLPT Exam Form Submission System (Local Project)",
+    "description": "Designed and implemented a Java web application to streamline JLPT student exam registration and data management using",
+    "techStack": [
+      "Java",
+      ", Spring MVC",
+      ", Spring Security",
+      ", MySQL."
+    ],
+    "type": "Web Application"
+  },
+  {
+    "title": " Quotation Management System (Local Project)",
+    "description": "Developed a quotation management system to improve processing speed by 50% and reduce manual errors using",
+    "techStack": [
+      "Spring MVC",
+      ", MySQL."
+    ],
+    "type": "Business Application"
+  },
+  {
+    "title": "Share Management System (Local Project)",
+    "description": "Built a share management system using Spring Boot and Thymeleaf to reduce manual record errors and improve data consistency using",
+    "techStack": [
+      "Spring Boot",
+      ", Thymeleaf."
+    ],
+    "type": "Enterprise Web Application"
+  },
+  {
+    "title": " Doctors & Patients Appointment System ",
+    "description": "Thesis project for real-time doctor-patient appointment scheduling and data handling using",
+    "techStack": [
+      "React",
+      ", NodeJS."
+    ],
+    "type": "Academic Project"
+  }
+]

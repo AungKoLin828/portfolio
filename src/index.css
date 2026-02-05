@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1b1b2f;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,h2,h3,h4 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h1 { font-size: clamp(2.5rem,5vw,4.5rem); }
+h2 { font-size: clamp(2rem,4vw,3.5rem); }
+h3 { font-size: clamp(1.25rem,2.5vw,2rem); }
+
+/* Links */
+a { font-weight: 500; color: #06b6d4; text-decoration: none; transition: color 0.3s ease;}
+a:hover { color: #22d3ee; }
+
+/* Buttons */
+button {
+  border-radius: 12px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.5em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  background: linear-gradient(to right,#06b6d4,#0891b2);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0,255,255,0.2);
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,255,255,0.3);
+}
+
+/* Glassy cards */
+.card {
+  background: rgba(20,20,30,0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 5cm;
+  margin-right: 5cm;
+}
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,255,255,0.2);
+}
+
+/* Section titles */
+.section-title {
+  text-align: center;
+  font-weight: 800;
+  font-size: clamp(2rem,5vw,3.0rem);
+  color: #fff;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.section-title::after {
+  content:'';
+  display:block;
+  width:60px;
+  height:3px;
+  background: linear-gradient(to right,#06b6d4,#22d3ee);
+  margin:10px auto 0;
+  border-radius:2px;
+}
+
+/* Paragraphs */
+p { color: rgba(255,255,255,0.75); line-height:1.8; }
+
+@media (max-width:768px){
+  h1{font-size:2.8rem;}
+  h2{font-size:2.2rem;}
+  h3{font-size:1.6rem;}
+}
