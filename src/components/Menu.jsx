@@ -36,14 +36,27 @@ export default function Menu() {
   }, []);
 
   const scrollToSection = (id) => {
-    const el = document.getElementById(id);
-    if (!el) return;
+  const el = document.getElementById(id);
+  if (!el) return;
 
-    const yOffset = -80; // fixed header height
-    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - 80; // offset for fixed header
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  const duration = 1000; // 1000ms = 1 second, increase for slower
+  let start = null;
 
-    window.scrollTo({ top: y, behavior: "smooth" });
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = timestamp - start;
+    const progressRatio = Math.min(progress / duration, 1); // 0 → 1
+    window.scrollTo(0, startPosition + distance * progressRatio);
+    if (progress < duration) {
+      window.requestAnimationFrame(step);
+    }
   };
+
+  window.requestAnimationFrame(step);
+};
 
   return (
     <header className="fixed top-0 left-0 right-0 h-20 bg-indigo-950 border-b border-cyan-500/20 shadow-lg z-50">
