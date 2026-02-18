@@ -62,8 +62,9 @@ button:hover {
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 8px 30px rgba(0,0,0,0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-left: 5cm;
-  margin-right: 5cm;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 0.6em 1.5em;
 }
 .card:hover {
   transform: translateY(-4px) scale(1.02);
@@ -78,6 +79,7 @@ button:hover {
   color: #fff;
   margin-bottom: 2rem;
   position: relative;
+  padding: 0.6em 1.5em;
 }
 .section-title::after {
   content:'';
@@ -93,7 +95,19 @@ button:hover {
 p { color: rgba(255,255,255,0.75); line-height:1.8; }
 
 @media (max-width:768px){
-  h1{font-size:2.8rem;}
+  h1{font-size:2.8rem;padding: 0.3em 1.0em;}
   h2{font-size:2.2rem;}
   h3{font-size:1.6rem;}
+  p{padding: 0.3em 1.0em;}
 }
+
+.contact-pill {
+  @apply bg-white/5 border border-white/10
+         rounded-xl
+         text-slate-200 text-sm sm:text-base
+         text-center;
+
+  padding: 0.3em 1em;
+}
+
+

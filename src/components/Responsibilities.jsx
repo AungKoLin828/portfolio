@@ -9,7 +9,7 @@ const responsibilities = [
 
 export default function Responsibilities() {
   return (
-    <section className="py-20 px-6 md:px-12 bg-indigo-900/70">
+    <section id="responsibilities" className="py-20 px-6 md:px-12 bg-indigo-900/70">
       <h1 className="section-title">Responsibilities</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 justify-items-center max-w-5xl mx-auto">

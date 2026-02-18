@@ -9,9 +9,8 @@ const highlights = [
 
 export default function WhyHireMe() {
   return (
-    <section className="py-20 px-6 md:px-12 bg-indigo-900/70">
+    <section id="whyhireme" className="py-20 px-6 md:px-12 bg-indigo-900/70">
       <h2 className="section-title">Why Hire Me</h2>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 justify-items-center max-w-5xl mx-auto">
         {highlights.map((item, i) => (
           <motion.div

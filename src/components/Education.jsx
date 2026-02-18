@@ -3,7 +3,7 @@ import education from "../data/education.json";
 
 export default function Education() {
   return (
-    <section className="py-24 px-6 md:px-12">
+    <section id="education" className="py-24 px-6 md:px-12">
       <h2 className="section-title">EDUCATION </h2>
 
       <div className="relative max-w-4xl mx-auto flex flex-col items-center text-center">
@@ -30,3 +30,5 @@ export default function Education() {
     </section>
   );
 }
+
+

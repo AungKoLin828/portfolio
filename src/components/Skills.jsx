@@ -3,7 +3,7 @@ import skills from "../data/skills.json";
 
 export default function Skills() {
   return (
-    <section className="py-20 px-6 md:px-12">
+    <section id="skills" className="py-20 px-6 md:px-12">
       <h2 className="section-title">TECHNICAL SKILLS</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
