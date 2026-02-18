@@ -4,7 +4,7 @@ import projects from "../data/projects.json";
 export default function Projects() {
   return (
     <section id="projects" className="py-20 px-6 md:px-12">
-      <h2 className="section-title">Professional Experience</h2>
+      <h2 className="section-title">Professional Experiences</h2>
 
       {/* ===== Company / Role Card ===== */}
       <motion.div
