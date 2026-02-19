@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import profile from "../data/profile.json";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
@@ -37,7 +36,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 px-6 md:px-12">
-      <h2 className="section-title">CONTACT</h2>
+      <h2 className="section-title">CONTACT ME</h2>
 
       <div className="relative max-w-4xl mx-auto flex flex-col items-center text-center">
 
