@@ -42,7 +42,7 @@ export default function BackToTop() {
         ${visible ? "right-10 opacity-100 scale-100" : "right-[-80px] opacity-0 scale-75"}
         hover:scale-110 hover:opacity-90
       `}
-      aria-label="Back to Top"
+      aria-label="Back to Top" style={{ marginLeft: "90%" }}
     >
       ⬆
     </button>

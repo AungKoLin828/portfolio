@@ -59,7 +59,7 @@ export default function Menu() {
 };
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-20 bg-indigo-950 border-b border-cyan-500/20 shadow-lg z-50">
+    <header className="fixed top-0 left-0 right-0 h-50 bg-indigo-950 border-b border-cyan-500/20 shadow-lg z-50" style={{ marginLeft: "12%" }}>
       <div className="h-full max-w-7xl mx-auto flex items-center gap-4 px-4 sm:px-6 overflow-x-auto whitespace-nowrap no-scrollbar">
         {sections.map((section) => (
           <button
