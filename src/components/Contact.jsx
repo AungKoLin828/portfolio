@@ -59,7 +59,7 @@ export default function Contact() {
            {/* NAME */}
         <div className="relative group">
         <FiUser className="absolute left-4 top-1/2 -translate-y-1/2 text-cyan-400 transition group-focus-within:text-cyan-500" />
-
+            &nbsp;
             <input
                 type="text"
                 name="from_name"
@@ -86,7 +86,7 @@ export default function Contact() {
                 {/* EMAIL */}
             <div className="relative group">
                 <FiMail className="absolute left-4 top-1/2 -translate-y-1/2 text-cyan-400 transition group-focus-within:text-cyan-300" style={{ paddingTop: "2%"}}/>
-
+                &nbsp;
                 <input
                     type="email"
                     name="reply_to"
@@ -112,6 +112,7 @@ export default function Contact() {
                 {/* MESSAGE */}
                 <div className="relative group" style={{ paddingTop: "2%"}}>
                 <FiMessageSquare className="absolute left-4 top-5 text-cyan-400 transition group-focus-within:text-cyan-300"/>
+                    &nbsp;
                     <textarea
                         name="message"
                         rows="5"
