@@ -6,6 +6,7 @@ import Skills from "./components/Skills";
 import Responsibilities from "./components/Responsibilities";
 import WhyHireMe from "./components/WhyHireMe";
 import BackToTop from "./components/BackToTop";
+import Contact from "./components/Contact";
 
 export default function App() {
   return (
@@ -13,12 +14,13 @@ export default function App() {
       <Menu />
 
       {/* Add padding top to prevent overlap with fixed menu */}
-      <main className="pt-20">
+      <main className="pt-20"> 
         <section id="hero"><Hero /></section>
         <section id="education"><Education /></section>
         <section id="projects"><Projects /></section>
         <section id="skills"><Skills /></section>
         <section id="responsibilities"><Responsibilities /></section>
+        <section id="contact"><Contact /></section>
         <section id="whyhireme"><WhyHireMe /></section>
       </main>
        <BackToTop />
