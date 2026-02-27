@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import skills from "../data/skills.json";
+import GlassCard from "../components/GlassCard";
 
 export default function Skills() {
   return (
@@ -14,13 +15,21 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.03, boxShadow: "0 15px 30px rgba(0,255,255,0.2)" }}
-            className="card p-6 w-full"
+            whileHover={{
+              scale: 1.03,
+            }}
+            className="w-full"
           >
-            <h3 className="text-cyan-400 font-semibold mb-4 text-lg sm:text-xl capitalize">{category}</h3>
-            <ul className="text-slate-200 text-sm sm:text-base space-y-1">
-              {list.map((item) => <li key={item}> {item}</li>)}
-            </ul>
+            <GlassCard className="p-6">
+              <h3 className="text-cyan-400 font-semibold mb-4 text-lg sm:text-xl capitalize">
+                {category}
+              </h3>
+              <ul className="text-slate-200 text-sm sm:text-base space-y-1">
+                {list.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </GlassCard>
           </motion.div>
         ))}
       </div>

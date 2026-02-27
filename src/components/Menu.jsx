@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import logo from "../assets/logo.png";
 
 const sections = [
   { name: "Home", id: "hero" },
@@ -7,7 +8,7 @@ const sections = [
   { name: "Skills", id: "skills" },
   { name: "Responsibilities", id: "responsibilities" },
   { name: "Contact", id: "contact" },
-  { name: "Why Hire Me", id: "whyhireme" },
+  { name: "Professional Advantages I Offer", id: "whyhireme" },
 ];
 
 export default function Menu() {
@@ -37,45 +38,51 @@ export default function Menu() {
   }, []);
 
   const scrollToSection = (id) => {
-  const el = document.getElementById(id);
-  if (!el) return;
+    const el = document.getElementById(id);
+    if (!el) return;
 
-  const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - 80; // offset for fixed header
-  const startPosition = window.pageYOffset;
-  const distance = targetPosition - startPosition;
-  const duration = 1000; // 1000ms = 1 second, increase for slower
-  let start = null;
+    const targetPosition =
+      el.getBoundingClientRect().top + window.pageYOffset - 80; // offset for fixed header
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 1000; // 1000ms = 1 second, increase for slower
+    let start = null;
 
-  const step = (timestamp) => {
-    if (!start) start = timestamp;
-    const progress = timestamp - start;
-    const progressRatio = Math.min(progress / duration, 1); // 0 → 1
-    window.scrollTo(0, startPosition + distance * progressRatio);
-    if (progress < duration) {
-      window.requestAnimationFrame(step);
-    }
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      const progressRatio = Math.min(progress / duration, 1); // 0 → 1
+      window.scrollTo(0, startPosition + distance * progressRatio);
+      if (progress < duration) {
+        window.requestAnimationFrame(step);
+      }
+    };
+
+    window.requestAnimationFrame(step);
   };
 
-  window.requestAnimationFrame(step);
-};
-
   return (
-    <header className="fixed top-0 left-0 right-0 h-50 bg-indigo-950 border-b border-cyan-500/20 shadow-lg z-50" style={{ marginLeft: "12%"}}>
-      <div className="h-full max-w-7xl mx-auto flex items-center gap-4 px-4 sm:px-6 overflow-x-auto whitespace-nowrap no-scrollbar">
-        {sections.map((section) => (
-          <button
-            key={section.id}
-            onClick={() => scrollToSection(section.id)}
-            className={`px-4 py-2 rounded-lg text-sm sm:text-base flex-shrink-0 transition ${
-              active === section.id
-                ? "bg-cyan-500/20 text-cyan-300"
-                : "text-gray-300 hover:text-indigo-400"
-            }`}
-          >
-            {section.name}
-          </button>
-        ))}
+    <header className="menu-header">
+      <div className="menu-container">
+        {/* LOGO */}
+        <div className="menu-logo" onClick={() => scrollToSection("hero")}>
+          <img src={logo} alt="Logo" />
+        </div>
+
+        {/* MENU */}
+        <nav className="menu-nav">
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              onClick={() => scrollToSection(section.id)}
+              className={active === section.id ? "menu-btn active" : "menu-btn"}
+            >
+              {section.name}
+            </button>
+          ))}
+        </nav>
+        <div></div>
       </div>
-      </header>
+    </header>
   );
 }

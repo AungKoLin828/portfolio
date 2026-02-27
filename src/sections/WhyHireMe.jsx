@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import GlassCard from "../components/GlassCard";
 
 const highlights = [
   "Senior-level Spring Boot & Batch expertise",
@@ -9,8 +10,8 @@ const highlights = [
 
 export default function WhyHireMe() {
   return (
-    <section id="whyhireme" className="py-20 px-6 md:px-12 bg-indigo-900/70">
-      <h2 className="section-title">Why Hire Me</h2>
+    <section id="whyhireme" className="py-20 px-6 md:px-12 bg-black/60">
+      <h2 className="section-title">Professional Advantages I Offer</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 justify-items-center max-w-5xl mx-auto">
         {highlights.map((item, i) => (
           <motion.div
@@ -19,11 +20,14 @@ export default function WhyHireMe() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.05, boxShadow: "0 15px 30px rgba(0,255,255,0.2)" }}
-            className="card p-6 w-full max-w-sm flex items-start gap-3"
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="w-full max-w-sm"
           >
-            <span className="text-cyan-400 text-2xl mt-1"></span>
-            <p className="text-slate-200 text-base sm:text-lg">{item}</p>
+            <GlassCard className="p-6 flex items-start gap-3">
+              <p className="text-slate-200 text-base sm:text-lg">{item}</p>
+            </GlassCard>
           </motion.div>
         ))}
       </div>
