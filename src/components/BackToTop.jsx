@@ -11,7 +11,7 @@ export default function BackToTop() {
   }, []);
 
   const scrollToTop = () => {
-    const duration = 1800; // slower: 1.8 seconds
+    const duration = 2000; // slower: 1.8 seconds
     const start = window.pageYOffset;
     const startTime = performance.now();
 
