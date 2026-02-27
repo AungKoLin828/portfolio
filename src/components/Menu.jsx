@@ -8,12 +8,16 @@ const sections = [
   { name: "Skills", id: "skills" },
   { name: "Responsibilities", id: "responsibilities" },
   { name: "Contact", id: "contact" },
-  { name: "Professional Advantages I Offer", id: "whyhireme" },
+  { name: "Advantages", id: "whyhireme" },
 ];
 
 export default function Menu() {
   const [active, setActive] = useState("hero");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
+  /* ======================
+     ACTIVE SECTION TRACK
+  ====================== */
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -22,7 +26,7 @@ export default function Menu() {
         const el = document.getElementById(section.id);
         if (!el) return;
 
-        const top = el.offsetTop - 80; // header height
+        const top = el.offsetTop - 90;
         const bottom = top + el.offsetHeight;
 
         if (scrollY >= top && scrollY < bottom) {
@@ -32,34 +36,34 @@ export default function Menu() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // initial check
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /* ======================
+     SCROLL FUNCTION
+  ====================== */
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const targetPosition =
-      el.getBoundingClientRect().top + window.pageYOffset - 80; // offset for fixed header
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
-    const duration = 1000; // 1000ms = 1 second, increase for slower
-    let start = null;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
 
-    const step = (timestamp) => {
-      if (!start) start = timestamp;
-      const progress = timestamp - start;
-      const progressRatio = Math.min(progress / duration, 1); // 0 → 1
-      window.scrollTo(0, startPosition + distance * progressRatio);
-      if (progress < duration) {
-        window.requestAnimationFrame(step);
-      }
-    };
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
 
-    window.requestAnimationFrame(step);
+    setMobileOpen(false);
   };
+
+  /* ======================
+     BODY LOCK WHEN MOBILE MENU OPEN
+  ====================== */
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "auto";
+  }, [mobileOpen]);
 
   return (
     <header className="menu-header">
@@ -69,8 +73,18 @@ export default function Menu() {
           <img src={logo} alt="Logo" />
         </div>
 
-        {/* MENU */}
-        <nav className="menu-nav">
+        {/* HAMBURGER */}
+        <div
+          className={`hamburger ${mobileOpen ? "open" : ""}`}
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          <span />
+          <span />
+          <span />
+        </div>
+
+        {/* NAV */}
+        <nav className={`menu-nav ${mobileOpen ? "show" : ""}`}>
           {sections.map((section) => (
             <button
               key={section.id}
@@ -81,7 +95,6 @@ export default function Menu() {
             </button>
           ))}
         </nav>
-        <div></div>
       </div>
     </header>
   );

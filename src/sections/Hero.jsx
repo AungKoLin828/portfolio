@@ -8,7 +8,7 @@ export default function Hero() {
     <section
       id="hero"
       className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-800"
-      style={{ paddingTop: "5%" }}
+      style={{ paddingTop: "7%" }}
     >
       <motion.div
         initial={{ opacity: 0, y: -40 }}
