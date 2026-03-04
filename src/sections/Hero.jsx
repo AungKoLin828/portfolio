@@ -45,6 +45,7 @@ export default function Hero() {
             >
               🔗 LinkedIn
             </a>
+            &nbsp;
             <a
               href={`https://github.com/${profile.github}`}
               target="_blank"
@@ -53,6 +54,7 @@ export default function Hero() {
             >
               💻 GitHub
             </a>
+            &nbsp;
             <a
               href="/AUNG KO LIN_Resume.pdf"
               download
