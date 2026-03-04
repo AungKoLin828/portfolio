@@ -26,7 +26,7 @@ export default function Menu() {
         const el = document.getElementById(section.id);
         if (!el) return;
 
-        const top = el.offsetTop - 90;
+        const top = el.offsetTop - 100;
         const bottom = top + el.offsetHeight;
 
         if (scrollY >= top && scrollY < bottom) {
@@ -42,7 +42,37 @@ export default function Menu() {
   }, []);
 
   /* ======================
-     SCROLL FUNCTION
+     CUSTOM SLOW SCROLL
+  ====================== */
+  const smoothScrollTo = (targetY, duration = 1200) => {
+    const startY = window.pageYOffset;
+    const distance = targetY - startY;
+    let startTime = null;
+
+    const animation = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      // EaseInOutCubic
+      const ease =
+        progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      window.scrollTo(0, startY + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+  };
+
+  /* ======================
+     SCROLL TO SECTION
   ====================== */
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -50,10 +80,7 @@ export default function Menu() {
 
     const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
 
-    window.scrollTo({
-      top: y,
-      behavior: "smooth",
-    });
+    smoothScrollTo(y, 1200); // adjust speed here (ms)
 
     setMobileOpen(false);
   };
@@ -83,7 +110,7 @@ export default function Menu() {
           <span />
         </div>
 
-        {/* NAV */}
+        {/* NAVIGATION */}
         <nav className={`menu-nav ${mobileOpen ? "show" : ""}`}>
           {sections.map((section) => (
             <button

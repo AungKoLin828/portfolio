@@ -45,7 +45,7 @@ export default function Hero() {
             >
               🔗 LinkedIn
             </a>
-            &nbsp;
+            &nbsp; &nbsp;
             <a
               href={`https://github.com/${profile.github}`}
               target="_blank"
@@ -54,14 +54,14 @@ export default function Hero() {
             >
               💻 GitHub
             </a>
-            &nbsp;
+            &nbsp; &nbsp;
             <a
               href="/AUNG KO LIN_Resume.pdf"
               download
               className="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg hover:scale-105 hover:shadow-cyan-500/40 transition-all duration-300"
             >
               <FiDownload className="text-xl" />
-              Download Resume
+              &nbsp; Download Resume
             </a>
           </div>
         </GlassCard>
