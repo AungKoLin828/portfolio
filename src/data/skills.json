@@ -1,46 +1,45 @@
 {
   "Languages": [
-    "Java",
-    "JavaScript",
-    "TypeScript",
-    "VBA"
+    { "name": "Java", "icon": "FaJava" },
+    { "name": "JavaScript", "icon": "SiJavascript" },
+    { "name": "TypeScript", "icon": "SiTypescript" },
+    { "name": "VBA", "icon": "FaFileExcel" },
+    { "name": "HTML", "icon": "FaHtml5" },
+    { "name": "CSS", "icon": "FaCss3Alt" }
   ],
   "Frameworks": [
-    "Spring Boot",
-    "Spring Batch",
-    "Spring MVC",
-    "Spring Security",
-    "JPA",
-    "MyBatis",
-    "Angular",
-    "React",
-    "Thymeleaf",
-    "PrimeFaces",
-    "JSF",
-    "REST APIs"
+    { "name": "Spring Boot", "icon": "SiSpringboot" },
+    { "name": "Spring MVC", "icon": "SiSpring" },
+    { "name": "Hibernate", "icon": "SiHibernate" },
+    { "name": "JPA", "icon": "SiHibernate" },
+    { "name": "MyBatis", "icon": "SiDatabricks" },
+    { "name": "React", "icon": "FaReact" },
+    { "name": "Angular", "icon": "FaAngular" },
+    { "name": "Bootstrap", "icon": "FaBootstrap" },
+    { "name": "Thymeleaf", "icon": "FaLeaf" }
   ],
   "Databases": [
-    "Oracle",
-    "PostgreSQL",
-    "MySQL",
-    "MS Access"
+    { "name": "Oracle", "icon": "SiOracle" },
+    { "name": "PostgreSQL", "icon": "SiPostgresql" },
+    { "name": "MySQL", "icon": "SiMysql" },
+    { "name": "MS Access", "icon": "FaDatabase" }
   ],
   "Tools": [
-    "Eclipse",
-    "VS Code",
-    "Git",
-    "SVN",
-    "Maven",
-    "Gradle"
+    { "name": "Git", "icon": "FaGitAlt" },
+    { "name": "Maven", "icon": "SiApachemaven" },
+    { "name": "Gradle", "icon": "SiGradle" },
+    { "name": "VS Code", "icon": "SiVisualstudiocode" },
+    { "name": "Eclipse", "icon": "SiEclipseide" },
+    { "name": "SVN", "icon": "SiSubversion" }
   ],
   "Testing": [
-    "JUnit",
-    "Mockito",
-    "Cypress (E2E)"
+    { "name": "JUnit", "icon": "SiJunit5" },
+    { "name": "Mockito", "icon": "SiTestinglibrary" },
+    { "name": "Cypress (E2E)", "icon": "SiCypress" }
   ],
   "Other": [
-    "Jasper Reports",
-    "i-Reporter",
-    "Agile / Scrum"
+    { "name": "Jasper Reports", "icon": "SiGoogledocs" },
+    { "name": "i-Reporter", "icon": "SiDatadog" },
+    { "name": "Agile / Scrum", "icon": "SiScrumalliance" }
   ]
 }

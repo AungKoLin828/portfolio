@@ -322,3 +322,114 @@ p {
     font-size: 18px;
   }
 }
+
+/* Container row */
+.skills-row {
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping to next line */
+  gap: 16px; /* space between items */
+  justify-content: flex-start;
+}
+
+/* Individual skill item */
+.skill-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skill-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-5px);
+}
+
+/* Text */
+.skill-name {
+  font-size: 14px;
+  color: #cbd5e1;
+  transition: color 0.3s ease;
+}
+
+.skill-pill:hover .skill-name {
+  color: white;
+}
+
+/* Category color themes */
+.skill-icon {
+  font-size: 22px;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom right, #ffffff10, #ffffff05);
+}
+
+.skill-icon:hover {
+  transform: translateX(18px);
+  color: white;
+  box-shadow: 0 0 20px currentColor;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.skill-icon.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Category-specific colors and gradients */
+.Languages {
+  color: #facc15;
+  background: linear-gradient(135deg, #fde68a20, #fbbf2415);
+}
+.Frameworks {
+  color: #22d3ee;
+  background: linear-gradient(135deg, #67e8f920, #06b6d420);
+}
+.Databases {
+  color: #60a5fa;
+  background: linear-gradient(135deg, #93c5fd20, #3b82f620);
+}
+.Tools {
+  color: #f59e0b;
+  background: linear-gradient(135deg, #fcd34d20, #f9731675);
+}
+.Testing {
+  color: #4ade80;
+  background: linear-gradient(135deg, #86efac20, #22c55e15);
+}
+.Other {
+  color: #c084fc;
+  background: linear-gradient(135deg, #d8b4fe20, #a78bfa20);
+}
+
+/* Text label */
+.skill-name {
+  color: #cbd5e1;
+  transition: color 0.3s ease;
+}
+
+.skill-container:hover .skill-name {
+  color: white;
+}
