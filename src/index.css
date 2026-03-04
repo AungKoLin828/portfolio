@@ -13,8 +13,8 @@
 }
 
 body {
-  padding-left: 10%;
-  padding-right: 10%;
+  /* padding-left: 10%;
+  padding-right: 10%; */
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
@@ -24,6 +24,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.page-content {
+  padding-left: 10%;
+  padding-right: 10%;
+}
 /* Headings */
 h1,
 h2,
@@ -432,4 +436,78 @@ p {
 
 .skill-container:hover .skill-name {
   color: white;
+}
+/* ======================
+   FOOTER (MATCH HEADER)
+====================== */
+/* ======================
+   FOOTER (FULL WIDTH LIKE HEADER)
+====================== */
+.footer {
+  margin-top: 120px;
+  padding: 50px 20px;
+
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(34, 211, 238, 0.2);
+
+  /* 🔥 KEY FIX */
+  width: 100vw;
+  margin-left: calc(-10%);
+  margin-right: calc(-10%);
+}
+
+.footer-container {
+  width: 100%;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+
+/* Left */
+.footer-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer-role {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* Center Icons */
+.footer-center {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-icon {
+  font-size: 20px;
+  color: #d1d5db;
+  transition: all 0.3s ease;
+}
+
+.footer-icon:hover {
+  color: #67e8f9; /* same cyan tone used in header active */
+  transform: translateY(-4px);
+}
+
+/* Right */
+.footer-right {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
 }

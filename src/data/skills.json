@@ -10,6 +10,7 @@
   "Frameworks": [
     { "name": "Spring Boot", "icon": "SiSpringboot" },
     { "name": "Spring MVC", "icon": "SiSpring" },
+    { "name": "Spring Batch", "icon": "SiSpring" },
     { "name": "Hibernate", "icon": "SiHibernate" },
     { "name": "JPA", "icon": "SiHibernate" },
     { "name": "MyBatis", "icon": "SiDatabricks" },
@@ -28,7 +29,7 @@
     { "name": "Git", "icon": "FaGitAlt" },
     { "name": "Maven", "icon": "SiApachemaven" },
     { "name": "Gradle", "icon": "SiGradle" },
-    { "name": "VS Code", "icon": "SiVisualstudiocode" },
+    { "name": "VS Code", "icon": "SiVscode" },
     { "name": "Eclipse", "icon": "SiEclipseide" },
     { "name": "SVN", "icon": "SiSubversion" }
   ],

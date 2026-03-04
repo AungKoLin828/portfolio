@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import profile from "../data/profile.json";
 import { FiDownload } from "react-icons/fi";
 import GlassCard from "../components/GlassCard";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -17,9 +18,6 @@ export default function Hero() {
         className="max-w-4xl w-full"
       >
         <GlassCard className="p-20 flex flex-col items-center text-center gap-6">
-          {/* <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
-            {profile.name}
-          </h1> */}
           <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-cyan-400">
             {profile.role}
           </p>
@@ -32,7 +30,9 @@ export default function Hero() {
               📍 {profile.location}
             </div>
             <div className="px-4 py-2 bg-white/10 rounded-xl text-white break-all">
-              ✉ {profile.email}
+              <FaEnvelope />
+              &nbsp;
+              {profile.email}
             </div>
             <div className="px-4 py-2 bg-white/10 rounded-xl text-white break-all">
               📞 {profile.phone}
@@ -43,7 +43,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="px-4 py-2 bg-white/10 rounded-xl text-white hover:bg-cyan-500/20 transition break-all"
             >
-              🔗 LinkedIn
+              <FaLinkedin />
             </a>
             &nbsp; &nbsp;
             <a
@@ -52,7 +52,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="px-4 py-2 bg-white/10 rounded-xl text-white hover:bg-cyan-500/20 transition break-all"
             >
-              💻 GitHub
+              <FaGithub />
             </a>
             &nbsp; &nbsp;
             <a
@@ -61,7 +61,7 @@ export default function Hero() {
               className="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg hover:scale-105 hover:shadow-cyan-500/40 transition-all duration-300"
             >
               <FiDownload className="text-xl" />
-              &nbsp; Download Resume
+              &nbsp; Download CV
             </a>
           </div>
         </GlassCard>
