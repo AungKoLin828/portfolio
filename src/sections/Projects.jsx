@@ -54,7 +54,7 @@ export default function Projects() {
               <p className="mt-3 text-slate-300 text-sm sm:text-base">
                 {p.description}
               </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-2">
+              {/* <div className="mt-6 flex flex-wrap justify-center gap-2">
                 {p.techStack?.map((tech) => (
                   <span
                     key={tech}
@@ -63,7 +63,7 @@ export default function Projects() {
                     {tech}
                   </span>
                 ))}
-              </div>
+              </div> */}
             </GlassCard>
           </motion.div>
         ))}
