@@ -11,6 +11,8 @@
     { "name": "Spring Boot", "icon": "SiSpringboot" },
     { "name": "Spring MVC", "icon": "SiSpring" },
     { "name": "Spring Batch", "icon": "SiSpring" },
+    { "name": "REST API", "icon": "SiPostman" },
+    { "name": "WebSocket API", "icon": "SiSocketdotio" },
     { "name": "Hibernate", "icon": "SiHibernate" },
     { "name": "JPA", "icon": "SiHibernate" },
     { "name": "MyBatis", "icon": "SiDatabricks" },
