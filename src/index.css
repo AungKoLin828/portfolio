@@ -573,7 +573,7 @@ textarea.contact-input {
 ============================== */
 
 #education {
-  padding: 120px 2;
+  padding: 80px 2;
 }
 
 /* Grid */
@@ -967,7 +967,7 @@ textarea.contact-input {
 
 .hero-section {
   min-height: 100vh;
-  padding: 140px 20px 100px;
+  padding: 100px 50px 100px;
 
   display: flex;
   align-items: center;
