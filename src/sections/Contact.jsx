@@ -45,8 +45,7 @@ export default function Contact() {
                 name="from_name"
                 placeholder="Your Name"
                 required
-                className="w-full pl-12 pr-4 py-4 rounded-xl bg-black/30 text-white placeholder-slate-400 border border-white/10 backdrop-blur-md shadow-inner outline-none transition-all duration-300 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30"
-                style={{ width: "50%", height: "50%", borderRadius: "5px" }}
+                className="contact-input"
               />
             </div>
             {/* Email */}
@@ -58,8 +57,7 @@ export default function Contact() {
                 name="reply_to"
                 placeholder="Your Email"
                 required
-                className="w-full pl-12 pr-4 py-4 rounded-xl bg-black/30 text-white placeholder-slate-400 border border-white/10 backdrop-blur-md shadow-inner outline-none transition-all duration-300 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30"
-                style={{ width: "50%", height: "50%", borderRadius: "5px" }}
+                className="contact-input"
               />
             </div>
             {/* Message */}
@@ -71,8 +69,7 @@ export default function Contact() {
                 rows="5"
                 placeholder="Your Message..."
                 required
-                className="w-full pl-12 pr-4 py-4 rounded-xl bg-black/30 text-white placeholder-slate-400 border border-white/10 backdrop-blur-md shadow-inner outline-none resize-none transition-all duration-300 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30"
-                style={{ width: "50%", borderRadius: "5px" }}
+                className="contact-input"
               />
             </div>
 
@@ -81,7 +78,7 @@ export default function Contact() {
               whileTap={{ scale: 0.97 }}
               type="submit"
               className="w-full flex items-center justify-center gap-3 py-3 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg hover:shadow-cyan-500/40 transition-all duration-300"
-              style={{ paddingTop: "1%" }}
+              style={{ paddingTop: "1%", marginLeft: "2%" }}
             >
               <FiSend /> Send Message
             </motion.button>

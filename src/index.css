@@ -13,8 +13,6 @@
 }
 
 body {
-  /* padding-left: 10%;
-  padding-right: 10%; */
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
@@ -458,7 +456,7 @@ p {
 }
 
 .footer-container {
-  width: 100%;
+  width: 70%;
   margin: auto;
 
   display: flex;
@@ -510,4 +508,61 @@ p {
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* ======================
+   CONTACT INPUT DESIGN
+====================== */
+
+.contact-input {
+  width: 60%;
+  padding: 14px 18px 14px 50px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: #ffffff;
+  font-size: 15px;
+
+  backdrop-filter: blur(10px);
+  outline: none;
+
+  transition: all 0.3s ease;
+}
+
+/* Textarea specific */
+textarea.contact-input {
+  resize: none;
+  min-height: 130px;
+  padding-top: 18px;
+}
+
+/* Placeholder */
+.contact-input::placeholder {
+  color: #94a3b8;
+  transition: 0.3s;
+}
+
+/* Focus Effect */
+.contact-input:focus {
+  border: 1px solid #22d3ee;
+  box-shadow:
+    0 0 0 3px rgba(34, 211, 238, 0.2),
+    0 0 15px rgba(34, 211, 238, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Hover Effect */
+.contact-input:hover {
+  border: 1px solid rgba(34, 211, 238, 0.5);
+}
+
+/* Icon Alignment Fix */
+.relative .contact-input {
+  padding-left: 55px;
+}
+
+.relative svg {
+  pointer-events: none;
 }

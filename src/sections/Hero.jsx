@@ -31,7 +31,7 @@ export default function Hero() {
             </div>
             <div className="px-4 py-2 bg-white/10 rounded-xl text-white break-all">
               <FaEnvelope />
-              &nbsp;
+              &nbsp; &nbsp;
               {profile.email}
             </div>
             <div className="px-4 py-2 bg-white/10 rounded-xl text-white break-all">
