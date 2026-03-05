@@ -10,23 +10,26 @@ const highlights = [
 
 export default function WhyHireMe() {
   return (
-    <section id="whyhireme" className="py-20 px-6 md:px-12 bg-black/60">
-      <h2 className="section-title">Professional Advantages I Offer</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 justify-items-center max-w-5xl mx-auto">
+    <section id="whyhireme" className="whyhire-section">
+      <h2 className="section-title">
+        Professional Advantages I Offer
+      </h2>
+
+      <div className="whyhire-grid">
         {highlights.map((item, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
+            transition={{ delay: i * 0.15 }}
             viewport={{ once: true }}
-            whileHover={{
-              scale: 1.05,
-            }}
-            className="w-full max-w-sm"
+            className="whyhire-wrapper"
           >
-            <GlassCard className="p-6 flex items-start gap-3">
-              <p className="text-slate-200 text-base sm:text-lg">{item}</p>
+            <GlassCard className="whyhire-card">
+              <div className="whyhire-content">
+                <div className="whyhire-icon">★</div>
+                <p className="whyhire-text">{item}</p>
+              </div>
             </GlassCard>
           </motion.div>
         ))}

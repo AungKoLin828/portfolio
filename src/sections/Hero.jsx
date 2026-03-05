@@ -1,69 +1,65 @@
 import { motion } from "framer-motion";
 import profile from "../data/profile.json";
 import { FiDownload } from "react-icons/fi";
-import GlassCard from "../components/GlassCard";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import GlassCard from "../components/GlassCard";
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-800"
-      style={{ paddingTop: "7%" }}
-    >
+    <section id="hero" className="hero-section">
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-4xl w-full"
+        className="hero-container"
       >
-        <GlassCard className="p-20 flex flex-col items-center text-center gap-6">
-          <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-cyan-400">
-            {profile.role}
-          </p>
-          <p className="text-slate-200 text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl">
-            {profile.summary}
-          </p>
+        <GlassCard className="hero-card">
+          <h1 className="hero-role">{profile.role}</h1>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-3xl mt-6">
-            <div className="px-4 py-2 bg-white/10 rounded-xl text-white">
+          <p className="hero-summary">{profile.summary}</p>
+
+          <div className="hero-info-grid">
+            <div className="hero-info-item">
               📍 {profile.location}
             </div>
-            <div className="px-4 py-2 bg-white/10 rounded-xl text-white break-all">
-              <FaEnvelope />
-              &nbsp; &nbsp;
-              {profile.email}
+
+            <div className="hero-info-item">
+              <FaEnvelope /> {profile.email}
             </div>
-            <div className="px-4 py-2 bg-white/10 rounded-xl text-white break-all">
+
+            <div className="hero-info-item">
               📞 {profile.phone}
             </div>
+          </div>
+
+          <div className="hero-socials">
             <a
               href={`https://linkedin.com/in/${profile.linkedin}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-white/10 rounded-xl text-white hover:bg-cyan-500/20 transition break-all"
+              className="hero-social-icon"
             >
               <FaLinkedin />
             </a>
-            &nbsp; &nbsp;
+
             <a
               href={`https://github.com/${profile.github}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-white/10 rounded-xl text-white hover:bg-cyan-500/20 transition break-all"
+              className="hero-social-icon"
             >
               <FaGithub />
             </a>
-            &nbsp; &nbsp;
-            <a
-              href="/AUNG KO LIN_Resume.pdf"
-              download
-              className="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg hover:scale-105 hover:shadow-cyan-500/40 transition-all duration-300"
-            >
-              <FiDownload className="text-xl" />
-              &nbsp; Download CV
-            </a>
           </div>
+
+          <a
+            href="/AUNG KO LIN_Resume.pdf"
+            download
+            className="hero-download-btn"
+          >
+            <FiDownload />
+            Download CV
+          </a>
         </GlassCard>
       </motion.div>
     </section>
