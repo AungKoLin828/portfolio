@@ -54,16 +54,6 @@ export default function Projects() {
               <p className="mt-3 text-slate-300 text-sm sm:text-base">
                 {p.description}
               </p>
-              {/* <div className="mt-6 flex flex-wrap justify-center gap-2">
-                {p.techStack?.map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-white/10 text-cyan-300 px-3 py-1 rounded-full text-xs sm:text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div> */}
             </GlassCard>
           </motion.div>
         ))}
