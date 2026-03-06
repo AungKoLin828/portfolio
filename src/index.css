@@ -115,7 +115,7 @@ button:hover {
   font-size: clamp(2rem, 5vw, 3rem);
   color: #fff;
   margin-bottom: 2rem;
-  padding: 0.1em 1.5em;
+  padding: 0.9em 1.5em;
   position: relative;
 }
 .section-title::after {
