@@ -9,14 +9,14 @@ export default function Footer() {
           <h3 className="footer-name">Aung Ko Lin</h3>
           <p className="footer-role">Senior Java Developer</p>
         </div>
-
-        {/* Center Section */}
-        <div className="footer-center">
+        
+        {/* Center Section - Hero-style social icons */}
+        <div className="footer-center flex justify-center gap-5">
           <a
             href="https://github.com/AungKoLin828"
             target="_blank"
             rel="noreferrer"
-            className="footer-icon"
+            className="footer-social-icon"
           >
             <FaGithub />
           </a>
@@ -25,12 +25,15 @@ export default function Footer() {
             href="https://linkedin.com"
             target="_blank"
             rel="noreferrer"
-            className="footer-icon"
+            className="footer-social-icon"
           >
             <FaLinkedin />
           </a>
 
-          <a href="mailto:aungko.linn404@gmail.com" className="footer-icon">
+          <a
+            href="mailto:aungko.linn404@gmail.com"
+            className="footer-social-icon"
+          >
             <FaEnvelope />
           </a>
         </div>
