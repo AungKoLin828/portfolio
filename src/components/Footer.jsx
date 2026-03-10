@@ -1,4 +1,5 @@
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import profile from "../data/profile.json";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -6,14 +7,15 @@ export default function Footer() {
       <div className="footer-container">
         {/* Left Section */}
         <div className="footer-left">
-          <h3 className="footer-name">Aung Ko Lin</h3>
-          <p className="footer-role">Senior Java Developer</p>
+          <h3 className="footer-name">{profile.name}</h3>
+          <p className="footer-role">{profile.role}</p>
+          <p className="footer-location">📍 {profile.location}</p>
         </div>
-        
-        {/* Center Section - Hero-style social icons */}
-        <div className="footer-center flex justify-center gap-5">
+
+        {/* Center Section - Social & Contact */}
+        <div className="footer-center flex justify-center gap-6">
           <a
-            href="https://github.com/AungKoLin828"
+            href={`https://github.com/${profile.github}`}
             target="_blank"
             rel="noreferrer"
             className="footer-social-icon"
@@ -22,7 +24,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://linkedin.com"
+            href={`https://linkedin.com/in/${profile.linkedin}`}
             target="_blank"
             rel="noreferrer"
             className="footer-social-icon"
@@ -30,17 +32,21 @@ export default function Footer() {
             <FaLinkedin />
           </a>
 
-          <a
-            href="mailto:aungko.linn404@gmail.com"
-            className="footer-social-icon"
-          >
+          <a href={`mailto:${profile.email}`} className="footer-social-icon">
             <FaEnvelope />
+          </a>
+
+          <a href={`tel:${profile.phone}`} className="footer-social-icon">
+            <FaPhone />
           </a>
         </div>
 
         {/* Right Section */}
         <div className="footer-right">
-          <p>© {new Date().getFullYear()} All Rights Reserved</p>
+          <p>📞 {profile.phone}</p>
+          <p>
+            © {new Date().getFullYear()} {profile.name}. All Rights Reserved.
+          </p>
         </div>
       </div>
     </footer>
