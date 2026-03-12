@@ -82,6 +82,12 @@ export default function SmartPortfolioAI() {
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  sendMessage();
+                }
+              }}
               placeholder="Ask something..."
             />
 
