@@ -1,34 +1,79 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { smartAI } from "../utils/smartAIEngine";
-import { FiSend, FiMessageCircle } from "react-icons/fi";
+import { FiSend, FiMessageCircle, FiMic } from "react-icons/fi";
 
 export default function SmartPortfolioAI() {
   const [open, setOpen] = useState(false);
-
   const [messages, setMessages] = useState([
     { role: "ai", text: "Hello 👋 I'm Aung Ko Lin's portfolio assistant." },
   ]);
-
   const [input, setInput] = useState("");
 
-  const sendMessage = () => {
-    if (!input) return;
+  const chatEndRef = useRef(null);
 
-    const userMsg = { role: "user", text: input };
+  // Auto-scroll to bottom on new messages
+  useEffect(() => {
+    if (chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
 
+  // Typing animation for AI reply
+  const sendMessage = (msgText = input) => {
+    if (!msgText) return;
+
+    const userMsg = { role: "user", text: msgText };
     setMessages((prev) => [...prev, userMsg]);
-
     setInput("");
 
-    // typing animation delay
-    setTimeout(() => {
-      const reply = smartAI(input);
+    const reply = String(smartAI(msgText) || "");
+    let i = 0;
 
-      const aiMsg = { role: "ai", text: reply };
+    // Add empty AI message first
+    setMessages((prev) => [...prev, { role: "ai", text: "" }]);
 
-      setMessages((prev) => [...prev, aiMsg]);
-    }, 600);
+    const interval = setInterval(() => {
+      i++;
+      setMessages((prev) => {
+        const updated = [...prev];
+        updated[updated.length - 1] = {
+          ...updated[updated.length - 1],
+          text: reply.slice(0, i),
+        };
+        return updated;
+      });
+
+      if (i >= reply.length) clearInterval(interval);
+    }, 30); // typing speed
   };
+
+  // Voice input using Web Speech API
+  const startVoiceInput = () => {
+    if (!("webkitSpeechRecognition" in window)) {
+      alert("Voice input not supported in this browser!");
+      return;
+    }
+
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      sendMessage(transcript);
+    };
+
+    recognition.start();
+  };
+
+  // Predefined smart suggestions
+  const suggestions = [
+    { label: "Languages", text: "What programming languages do you use?" },
+    { label: "Frameworks", text: "What frameworks do you know?" },
+    { label: "Databases", text: "What databases do you use?" },
+    { label: "Experience", text: "How many years of experience?" },
+    { label: "Contact", text: "How can I contact you?" },
+  ];
 
   return (
     <>
@@ -41,6 +86,7 @@ export default function SmartPortfolioAI() {
         <div className="ai-container">
           <div className="ai-header">🤖 Ask about Aung Ko Lin</div>
 
+          {/* Chat Messages */}
           <div className="ai-chat">
             {messages.map((m, i) => (
               <div
@@ -50,34 +96,19 @@ export default function SmartPortfolioAI() {
                 {m.text}
               </div>
             ))}
+            <div ref={chatEndRef} />
           </div>
 
-          {/* Suggestions */}
-
+          {/* Smart Suggestions */}
           <div className="ai-suggestions">
-            <button
-              onClick={() => setInput("What programming languages do you use?")}
-            >
-              Languages
-            </button>
-
-            <button onClick={() => setInput("What frameworks do you know?")}>
-              Frameworks
-            </button>
-
-            <button onClick={() => setInput("What databases do you use?")}>
-              Databases
-            </button>
-
-            <button onClick={() => setInput("How many years of experience?")}>
-              Experience
-            </button>
-
-            <button onClick={() => setInput("How can I contact you?")}>
-              Contact
-            </button>
+            {suggestions.map((s, i) => (
+              <button key={i} onClick={() => sendMessage(s.text)}>
+                {s.label}
+              </button>
+            ))}
           </div>
 
+          {/* Input + Send + Voice */}
           <div className="ai-input">
             <input
               value={input}
@@ -90,9 +121,11 @@ export default function SmartPortfolioAI() {
               }}
               placeholder="Ask something..."
             />
-
             <button onClick={sendMessage}>
               <FiSend />
+            </button>
+            <button onClick={startVoiceInput}>
+              <FiMic />
             </button>
           </div>
         </div>
