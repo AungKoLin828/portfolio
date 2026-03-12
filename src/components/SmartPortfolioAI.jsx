@@ -72,6 +72,10 @@ export default function SmartPortfolioAI() {
             <button onClick={() => setInput("How many years of experience?")}>
               Experience
             </button>
+
+            <button onClick={() => setInput("How can I contact you?")}>
+              Contact
+            </button>
           </div>
 
           <div className="ai-input">
