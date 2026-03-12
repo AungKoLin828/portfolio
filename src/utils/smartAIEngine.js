@@ -82,14 +82,17 @@ These systems support secure transaction processing and scalable enterprise plat
   if (
     q.includes("contact") ||
     q.includes("email") ||
+    q.includes("phone") ||
+    q.includes("ph") ||
     q.includes("hire") ||
     q.includes("reach")
   ) {
     context.lastTopic = "contact";
 
-    return `You can contact Aung Ko Lin directly via email: 
+    return `You can contact Aung Ko Lin directly via email or phone: 
 
 📧 aungko.linn404@gmail.com
+📞 +95 09450821620
 
 He is open to discussing software development opportunities and collaborations.`;
   }
