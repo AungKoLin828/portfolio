@@ -745,3 +745,86 @@ textarea.contact-input {
     transform: translateY(-8px);
   }
 }
+
+.ai-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #22d3ee;
+  border: none;
+  border-radius: 50%;
+  padding: 14px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.ai-container {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 280px;
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-header {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.ai-chat {
+  height: 240px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.msg-user {
+  text-align: right;
+  color: #22d3ee;
+  margin: 6px 0;
+}
+
+.msg-ai {
+  text-align: left;
+  color: white;
+  margin: 6px 0;
+}
+
+.ai-input {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.ai-input input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+}
+
+.ai-input button {
+  padding: 8px 12px;
+  background: #22d3ee;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ai-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.ai-suggestions button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
