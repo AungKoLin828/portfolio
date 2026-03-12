@@ -11,22 +11,23 @@ export default function SmartPortfolioAI() {
 
   const chatEndRef = useRef(null);
 
-  // Auto-scroll to bottom on new messages
+  // Auto-scroll to bottom whenever messages change
   useEffect(() => {
     if (chatEndRef.current) {
       chatEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
 
-  // Typing animation for AI reply
-  const sendMessage = (msgText = input) => {
-    if (!msgText) return;
+  // Typing animation with strict blank/null check
+  const sendMessage = (msgText) => {
+    if (!msgText || msgText.trim() === "") return;
 
-    const userMsg = { role: "user", text: msgText };
+    const trimmedMsg = msgText.trim();
+    const userMsg = { role: "user", text: trimmedMsg };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
 
-    const reply = String(smartAI(msgText) || "");
+    const reply = String(smartAI(trimmedMsg) || "");
     let i = 0;
 
     // Add empty AI message first
@@ -42,31 +43,11 @@ export default function SmartPortfolioAI() {
         };
         return updated;
       });
-
       if (i >= reply.length) clearInterval(interval);
-    }, 30); // typing speed
+    }, 30); // adjust typing speed here
   };
 
-  // Voice input using Web Speech API
-  const startVoiceInput = () => {
-    if (!("webkitSpeechRecognition" in window)) {
-      alert("Voice input not supported in this browser!");
-      return;
-    }
-
-    const recognition = new window.webkitSpeechRecognition();
-    recognition.lang = "en-US";
-    recognition.interimResults = false;
-
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      sendMessage(transcript);
-    };
-
-    recognition.start();
-  };
-
-  // Predefined smart suggestions
+  // Predefined smart suggestion buttons
   const suggestions = [
     { label: "Languages", text: "What programming languages do you use?" },
     { label: "Frameworks", text: "What frameworks do you know?" },
@@ -77,7 +58,7 @@ export default function SmartPortfolioAI() {
 
   return (
     <>
-      {/* Floating Button */}
+      {/* Floating AI toggle button */}
       <button onClick={() => setOpen(!open)} className="ai-toggle">
         <FiMessageCircle />
       </button>
@@ -86,7 +67,7 @@ export default function SmartPortfolioAI() {
         <div className="ai-container">
           <div className="ai-header">🤖 Ask about Aung Ko Lin</div>
 
-          {/* Chat Messages */}
+          {/* Chat messages */}
           <div className="ai-chat">
             {messages.map((m, i) => (
               <div
@@ -99,7 +80,7 @@ export default function SmartPortfolioAI() {
             <div ref={chatEndRef} />
           </div>
 
-          {/* Smart Suggestions */}
+          {/* Smart suggestion buttons */}
           <div className="ai-suggestions">
             {suggestions.map((s, i) => (
               <button key={i} onClick={() => sendMessage(s.text)}>
@@ -108,7 +89,7 @@ export default function SmartPortfolioAI() {
             ))}
           </div>
 
-          {/* Input + Send + Voice */}
+          {/* Input area */}
           <div className="ai-input">
             <input
               value={input}
@@ -116,16 +97,13 @@ export default function SmartPortfolioAI() {
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
-                  sendMessage();
+                  sendMessage(input);
                 }
               }}
               placeholder="Ask something..."
             />
-            <button onClick={sendMessage}>
+            <button onClick={() => sendMessage(input)}>
               <FiSend />
-            </button>
-            <button onClick={startVoiceInput}>
-              <FiMic />
             </button>
           </div>
         </div>
