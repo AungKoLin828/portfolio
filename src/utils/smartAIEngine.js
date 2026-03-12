@@ -74,7 +74,7 @@ These systems support secure transaction processing and scalable enterprise plat
   if (q.includes("education") || q.includes("degree")) {
     context.lastTopic = "education";
 
-    return `Aung Ko Lin holds a Level-5 Diploma in Computing from NCC Education (UK) and is pursuing a Bachelor of Science in Information Technology.`;
+    return `Aung Ko Lin holds a Level-5 Diploma in Computing from NCC Education (UK) and Bachelor of Science in Information Technology.`;
   }
 
   /* ---------------- Contact ---------------- */
