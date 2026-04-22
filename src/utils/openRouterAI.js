@@ -1,11 +1,11 @@
 const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
 
 const MODELS = [
-  "google/gemma-4-31b-it:free",
+  "google/gemma-3-12b-it:free",
   "meta-llama/llama-3.3-70b-instruct:free",
   "google/gemma-4-31b-it:free",
   "nvidia/nemotron-nano-12b-v2-vl:free",
-  "qwen/qwen3-coder:free",
+  "liquid/lfm-2.5-1.2b-instruct:free",
 ];
 
 const SYSTEM_PROMPT = `
