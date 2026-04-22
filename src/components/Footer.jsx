@@ -47,11 +47,6 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {profile.name}. All Rights Reserved.
           </p>
-          <button
-            onClick={() => alert(import.meta.env.VITE_OPENROUTER_API_KEY)}
-          >
-            Test API
-          </button>
         </div>
       </div>
     </footer>
