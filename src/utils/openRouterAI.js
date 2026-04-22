@@ -1,4 +1,7 @@
-const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
+const API_KEYS = [
+  import.meta.env.VITE_OPENROUTER_API_KEY,
+  import.meta.env.VITE_OPENROUTER_API_KEY_1,
+];
 
 const MODELS = [
   "google/gemma-3-12b-it:free",
@@ -67,39 +70,52 @@ Rules:
 `;
 
 export async function askRealAI(message, history = []) {
-  for (const model of MODELS) {
-    try {
-      const response = await fetch(
-        "https://openrouter.ai/api/v1/chat/completions",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${API_KEY}`,
-            "Content-Type": "application/json",
-            "HTTP-Referer": window.location.origin,
-            "X-Title": "Aung Ko Lin Portfolio AI",
+  for (const apiKey of API_KEYS) {
+    if (!apiKey) continue;
+
+    for (const model of MODELS) {
+      try {
+        console.log("Trying:", model, "with key");
+
+        const response = await fetch(
+          "https://openrouter.ai/api/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${apiKey}`,
+              "Content-Type": "application/json",
+              "HTTP-Referer": window.location.origin,
+              "X-Title": "Aung Ko Lin Portfolio AI",
+            },
+            body: JSON.stringify({
+              model,
+              temperature: 0.3,
+              messages: [
+                {
+                  role: "system",
+                  content: SYSTEM_PROMPT,
+                },
+                ...history,
+                {
+                  role: "user",
+                  content: message,
+                },
+              ],
+            }),
           },
-          body: JSON.stringify({
-            model,
-            messages: [
-              {
-                role: "system",
-                content: SYSTEM_PROMPT,
-              },
-              ...history,
-              { role: "user", content: message },
-            ],
-          }),
-        },
-      );
+        );
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (!response.ok) continue;
+        if (!response.ok) {
+          console.warn("Failed:", model, data);
+          continue;
+        }
 
-      return data?.choices?.[0]?.message?.content || null;
-    } catch (err) {
-      console.warn("AI failed:", model);
+        return data?.choices?.[0]?.message?.content || null;
+      } catch (err) {
+        console.warn("AI failed:", model);
+      }
     }
   }
 
