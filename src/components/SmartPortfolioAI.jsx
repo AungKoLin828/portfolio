@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { smartAI } from "../utils/smartAIEngine";
+// import { smartAI } from "../utils/smartAIEngine";
+import { hybridAI } from "../utils/hybridAI";
 import { FiSend, FiMessageCircle, FiMic } from "react-icons/fi";
 
 export default function SmartPortfolioAI() {
@@ -19,7 +20,7 @@ export default function SmartPortfolioAI() {
   }, [messages]);
 
   // Typing animation with strict blank/null check
-  const sendMessage = (msgText) => {
+  const sendMessage = async (msgText) => {
     if (!msgText || msgText.trim() === "") return;
 
     const trimmedMsg = msgText.trim();
@@ -27,24 +28,31 @@ export default function SmartPortfolioAI() {
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
 
-    const reply = String(smartAI(trimmedMsg) || "");
-    let i = 0;
+    // loading placeholder
+    setMessages((prev) => [...prev, { role: "ai", text: "..." }]);
 
-    // Add empty AI message first
-    setMessages((prev) => [...prev, { role: "ai", text: "" }]);
+    const history = messages.map((m) => ({
+      role: m.role === "ai" ? "assistant" : "user",
+      content: m.text,
+    }));
+
+    const reply = await hybridAI(trimmedMsg, history);
+
+    let i = 0;
 
     const interval = setInterval(() => {
       i++;
       setMessages((prev) => {
         const updated = [...prev];
         updated[updated.length - 1] = {
-          ...updated[updated.length - 1],
+          role: "ai",
           text: reply.slice(0, i),
         };
         return updated;
       });
+
       if (i >= reply.length) clearInterval(interval);
-    }, 30); // adjust typing speed here
+    }, 30);
   };
 
   // Predefined smart suggestion buttons
