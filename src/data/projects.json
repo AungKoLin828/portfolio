@@ -1,5 +1,19 @@
 [
   {
+    "title": " Stock Exchange and Bond Information Management Systems, (Japan Offshore Project)",
+    "description": "Developed microservices using Java and Spring Boot for Stock Exchange and Bond Information Management Systems, enabling efficient processing and distribution of securities market data.  ",
+    "techStack": [
+      "Java",
+      ", Spring Batch",
+      ", JPA",
+      ", JUnit",
+      ", OpenAPI",
+      ", Oracle."
+    ],
+    "type": "Enterprise / Offshore",
+    "highlight": true
+  },
+  {
     "title": "Legacy System Migration (Japan Offshore Project)",
     "description": "Migrated legacy C-based batch systems to Spring Batch Application, significantly improving system maintainability and reducing downtime by 30% using (Java, Spring Batch, JPA, JUnit, OpenAPI, Oracle) ",
     "techStack": [
