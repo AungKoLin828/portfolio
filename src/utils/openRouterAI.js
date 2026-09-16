@@ -1,4 +1,4 @@
-import { clearModelCache, getAvailableModels } from "@/util/models";
+import { clearModelCache, getAvailableModels } from "./models";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 
