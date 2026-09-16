@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-// import { smartAI } from "../utils/smartAIEngine";
 import { hybridAI } from "../utils/hybridAI";
 import { FiSend, FiMessageCircle, FiMic } from "react-icons/fi";
 
